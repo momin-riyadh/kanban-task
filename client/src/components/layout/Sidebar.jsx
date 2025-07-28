@@ -1,9 +1,9 @@
 function Sidebar() {
     const menuItems = [
-        { name: 'Home', href: '#', isActive: true },
-        { name: 'Tasks', href: '#', isActive: false },
-        { name: 'Projects', href: '#', isActive: false },
-        { name: 'Settings', href: '#', isActive: false }
+        {name: 'Home', href: '#', isActive: true},
+        {name: 'Tasks', href: '#', isActive: false},
+        {name: 'Projects', href: '#', isActive: false},
+        {name: 'Settings', href: '#', isActive: false}
     ];
 
     return (
@@ -14,10 +14,8 @@ function Sidebar() {
                 </h2>
                 <ul className="space-y-2">
                     {menuItems.map((item, index) => (
-                        <li
-                            key={index}
-                            className="hover:bg-[#635FC7] hover:text-white rounded-r-3xl -ml-4 pl-2"
-                        >
+                        <li key={index}
+                            className="hover:bg-[#635FC7] hover:text-white rounded-r-3xl -ml-4 pl-2">
                             <a
                                 href={item.href}
                                 className={`block p-2 hover:text-white active:bg-[#635FC7] active:text-white ${
