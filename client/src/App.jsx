@@ -1,5 +1,7 @@
-import LOGO from './assets/images/logo.svg'
-import './App.css'
+import LOGO from './assets/images/logo.svg';
+import './App.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function App() {
 
@@ -15,7 +17,13 @@ function App() {
                         <a href="" className="w-70">
                             <img width={120} src={LOGO} alt="Logo" className="h-16"/>
                         </a>
-                        <button className=" bg-[#635FC7] text-white px-4 py-2 rounded-3xl"> + Add New Task </button>
+                        <div className="flex items-center gap-2">
+                            <button className="bg-[#635FC7] text-white px-4 py-2 rounded-3xl"><i
+                                className="bi bi-plus"></i> Add New Task
+                            </button>
+
+                             <i className="bi bi-three-dots-vertical"></i>
+                        </div>
                     </div>
 
                 </div>
@@ -25,11 +33,19 @@ function App() {
                     <div className="w-72 bg-white h-full border-r-1 border-[#E4EBFA] pt-20">
                         <div className="p-4">
                             <h2 className="text-[12px] font-semibold mb-4 text-[#828FA3] uppercase">All Boards (3)</h2>
-                            <ul className="space-y-3">
-                                <li><a href="#" className="text-[#635FC7] hover:underline">Home</a></li>
-                                <li><a href="#" className="text-gray-600 hover:underline">Tasks</a></li>
-                                <li><a href="#" className="text-gray-600 hover:underline">Projects</a></li>
-                                <li><a href="#" className="text-gray-600 hover:underline">Settings</a></li>
+                            <ul className="space-y-2">
+                                <li><a href="#"
+                                       className="text-[#635FC7] hover:bg-[#635FC7] hover:text-white active:bg-[#635FC7] active:text-white rounded-r-3xl block p-2">Home</a>
+                                </li>
+                                <li><a href="#"
+                                       className="text-gray-600 hover:bg-[#635FC7] hover:text-white active:bg-[#635FC7] active:text-white rounded-r-3xl block p-2">Tasks</a>
+                                </li>
+                                <li><a href="#"
+                                       className="text-gray-600 hover:bg-[#635FC7] hover:text-white active:bg-[#635FC7] active:text-white rounded-r-3xl block p-2">Projects</a>
+                                </li>
+                                <li><a href="#"
+                                       className="text-gray-600 hover:bg-[#635FC7] hover:text-white active:bg-[#635FC7] active:text-white rounded-r-3xl block p-2">Settings</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
