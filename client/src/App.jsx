@@ -1,16 +1,19 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 import './App.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import PageLayout from './components/layout/PageLayout';
 
 function App() {
     return (
-        <PageLayout>
-            {/* Your main content goes here */}
-            <div>
-                <h1 className="text-2xl font-bold mb-4">Welcome to Kanban Board</h1>
-                <p className="text-gray-600">Your kanban content will go here...</p>
-            </div>
-        </PageLayout>
+        <Router>
+            <PageLayout>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                </Routes>
+            </PageLayout>
+        </Router>
+
     );
 }
 
