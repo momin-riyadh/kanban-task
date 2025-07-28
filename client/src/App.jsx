@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useState} from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div className="flex flex-col items-center">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+    return (
+        <>
+            <div className="h-screen w-full flex flex-col overflow-hidden">
+                {/* Top Navigation Bar */}
+                <div className="h-16 bg-gray-800 fixed top-0 left-0 right-0 z-50">
+                </div>
+
+                <div className="flex flex-1 w-full">
+                    {/* Sidebar */}
+                    <div className="w-64 bg-gray-100 h-full">
+                    </div>
+
+                    {/* Main Content */}
+                    <div className="flex-1 p-4 mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi autem corporis eaque eligendi id ipsam maiores, modi rerum veritatis? Dolores fuga laudantium neque quisquam sit. Culpa ipsam iure neque.
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default App
