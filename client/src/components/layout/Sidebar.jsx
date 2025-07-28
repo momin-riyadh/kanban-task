@@ -1,9 +1,11 @@
+import iconBoard from '../../assets/images/icon-board.svg';
+
 function Sidebar() {
     const menuItems = [
-        {name: 'Home', href: '#', isActive: true},
-        {name: 'Tasks', href: '#', isActive: false},
-        {name: 'Projects', href: '#', isActive: false},
-        {name: 'Settings', href: '#', isActive: false}
+        {name: 'Home', href: '#', isActive: true, icon: iconBoard},
+        {name: 'Tasks', href: '#', isActive: false, icon: iconBoard},
+        {name: 'Projects', href: '#', isActive: false, icon: iconBoard},
+        {name: '+ Create New Board', href: '#', isActive: false, icon: iconBoard}
     ];
 
     return (
@@ -18,10 +20,11 @@ function Sidebar() {
                             className="hover:bg-[#635FC7] hover:text-white rounded-r-3xl -ml-4 pl-2">
                             <a
                                 href={item.href}
-                                className={`block p-2 hover:text-white active:bg-[#635FC7] active:text-white ${
+                                className={`flex items-center p-2 hover:text-white active:bg-[#635FC7] active:text-white ${
                                     item.isActive ? 'text-[#635FC7]' : 'text-gray-600'
                                 }`}
                             >
+                                <img src={item.icon} alt="" className="inline-block mr-2 w-4 h-4"/>
                                 {item.name}
                             </a>
                         </li>
