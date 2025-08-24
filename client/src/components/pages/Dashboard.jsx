@@ -14,7 +14,7 @@ const Dashboard = () => {
                                 To Do (1)
                             </h2>
                         </div>
-                        <div className="column-body">
+                        <div className="column-body flex flex-col gap-4">
                             <Card className="max-w-md flex-shrink-0">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
                                 <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
@@ -99,6 +99,12 @@ const Dashboard = () => {
                             </Card>
                         </div>
                     </div>
+
+                    {/*Make New Column*/}
+                    <div className="single-column make-new-column flex-shrink-0 w-2xs grid place-items-center min-h-[calc(100vh-160px)] bg-[#E9EFFA]">
+                            <h3 className="text-[24px] h-lh font-semibold text-[#635FC7]"> + New Column</h3>
+                    </div>
+                    {/*End Make New Column*/}
                 </div>
                 {/*End Board Columns*/}
 
