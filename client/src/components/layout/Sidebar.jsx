@@ -54,7 +54,10 @@ function Sidebar() {
                 </div>
 
                 <div className="flex items-center justify-start gap-2 mt-4 font-semibold text-[#828FA3] w-full">
-                    <img src={IconHide} alt=""/> Hide Sidebar
+                    {/*<img src={IconHide} alt=""/> Hide Sidebar*/}
+                    <span className="cursor-pointer fixed bottom-12 left-0 bg-[#635FC7] p-3 rounded-r-full cursor-pointer">
+                      <img src={IconShow} alt=""/>
+                    </span>
                 </div>
             </div>
             {/*End Sidebar Footer*/}
