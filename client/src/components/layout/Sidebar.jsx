@@ -15,7 +15,7 @@ function Sidebar() {
     ];
 
     return (
-        <div className="w-72 bg-white h-full border-r-1 border-[#E4EBFA] pt-20 flex flex-col justify-between">
+        <div className="w-72 flex-shrink-0 bg-white h-full border-r-1 border-[#E4EBFA] pt-20 flex flex-col justify-between">
 
             {/*All boards*/}
             <div className="p-4">

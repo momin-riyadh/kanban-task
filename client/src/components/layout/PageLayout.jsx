@@ -8,7 +8,7 @@ function PageLayout({children}) {
             <div className="flex flex-1">
                 <Sidebar/>
                 {/* Main Content */}
-                <div className="flex-1 p-4 mt-20">
+                <div className="flex-1 p-4 me-4 mt-20 overflow-x-auto">
                     {children}
                 </div>
             </div>
