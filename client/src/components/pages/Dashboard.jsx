@@ -6,7 +6,9 @@ const Dashboard = () => {
         <PageLayout>
             <div className="dashboard h-full">
 
-                <div  className="flex flex-col items-center justify-center h-full vh-full">
+
+                {/*State: When No cards are added to the board*/}
+                <div className="flex flex-col items-center justify-center h-full vh-full">
                     <div className="font-semibold text-xl mb-3 text-[#828FA3]">This board is empty. Create a new column
                         to get
                         started.
@@ -16,6 +18,7 @@ const Dashboard = () => {
                         <i className="bi bi-plus"></i> Add New Task
                     </button>
                 </div>
+                {/*End State*/}
 
             </div>
         </PageLayout>
