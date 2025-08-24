@@ -43,7 +43,7 @@ function Sidebar() {
 
             {/*Sidebar Footer*/}
             <div className="flex flex-col items-center mt-auto p-4">
-                <div className="flex items-center  justify-center bg-[#F4F7FD] gap-3 px-2 py-5 w-full rounded-xl">
+                <div className="flex items-center  justify-center bg-[#F4F7FD] gap-5 px-2 py-5 w-full rounded-xl">
                     <img src={Sun} alt=""/>
                     <label className="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" className="sr-only peer" onChange={e => setIsDark(e.target.checked)}/>
