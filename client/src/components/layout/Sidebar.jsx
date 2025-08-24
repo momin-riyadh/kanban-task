@@ -15,12 +15,14 @@ function Sidebar() {
     ];
 
     return (
-        <div className="w-72 bg-white h-full border-r-1 border-[#E4EBFA] pt-20">
+        <div className="w-72 bg-white h-full border-r-1 border-[#E4EBFA] pt-20 flex flex-col justify-between">
+
+            {/*All boards*/}
             <div className="p-4">
                 <h2 className="text-[12px] font-semibold mb-4 text-[#828FA3] uppercase">
                     All Boards (3)
                 </h2>
-                <ul className="space-y-2">
+                <ul className="space-y-2 max-h-[calc(100vh-275px)] overflow-y-auto scrollbar-thin">
                     {menuItems.map((item, index) => (
                         <li key={index}
                             className="hover:bg-[#635FC7] hover:text-white rounded-r-3xl -ml-4 pl-2">
@@ -37,7 +39,7 @@ function Sidebar() {
                     ))}
                 </ul>
             </div>
-
+            {/*End All boards*/}
 
             {/*Sidebar Footer*/}
             <div className="flex flex-col items-center mt-auto p-4">
