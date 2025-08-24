@@ -1,4 +1,5 @@
 import LOGO from '../../assets/images/logo.svg';
+import React from "react";
 
 function Header() {
     return (
@@ -8,7 +9,8 @@ function Header() {
                     <img width={120} src={LOGO} alt="Logo" className="h-16"/>
                 </a>
                 <div className="flex items-center gap-2">
-                    <button className="bg-[#635FC7] text-white px-4 py-3 rounded-3xl">
+                    <button
+                        className="bg-[#635FC7] hover:bg-[#A8A4FF] text-white px-4 py-3 rounded-3xl transition-colors duration-400 cursor-pointer">
                         <i className="bi bi-plus"></i> Add New Task
                     </button>
                     <i className="bi bi-three-dots-vertical text-[#828FA3] text-[20px] cursor-pointer"></i>
