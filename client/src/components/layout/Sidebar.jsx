@@ -34,11 +34,11 @@ function Sidebar({ onSidebarToggle }) {
                 }`}
             >
                 {/*All boards*/}
-                <div className="p-4">
-                    <h2 className="text-[12px] font-semibold mb-4 text-[#828FA3] uppercase">
+                <div className="">
+                    <h2 className="text-[12px] font-semibold mb-4 text-[#828FA3] uppercase p-4">
                         All Boards (3)
                     </h2>
-                    <ul className="space-y-2 max-h-[calc(100vh-275px)] overflow-y-auto scrollbar-thin">
+                    <ul className="space-y-2 max-h-[calc(100vh-275px)] overflow-y-auto scrollbar-thin px-4">
                         {menuItems.map((item, index) => (
                             <li key={index}
                                 className="hover:bg-[#635FC7] hover:text-white rounded-r-3xl -ml-4 pl-2">
