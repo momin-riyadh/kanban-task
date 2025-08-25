@@ -9,7 +9,7 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path="/" element={<Dashboard/>}/>
                 {/*<Route path="/" element={<Navigate to="/dashboard" replace/>}/>*/}
             </Routes>
         </Router>

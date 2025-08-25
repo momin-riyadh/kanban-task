@@ -102,7 +102,7 @@ function Header() {
                 </div>
             </div>
 
-            {/* Add: Task Modal */}
+            {/* Add New Task Modal */}
             {isTaskModalOpen && (
                 <div
                     className="fixed inset-0 z-[100] flex items-center justify-center"
