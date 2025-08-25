@@ -122,7 +122,7 @@ function Sidebar({ onSidebarToggle }) {
                 {/*End Sidebar Footer*/}
             </div>
 
-            {/* Show Sidebar Button - appears when sidebar is hidden */}
+            {/* Show Sidebar Button - appears when the sidebar is hidden */}
             <button
                 onClick={toggleSidebar}
                 className={`fixed bottom-12 left-0 bg-[#635FC7] hover:bg-[#A8A4FF] p-3 rounded-r-full transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-50 ${
