@@ -48,7 +48,10 @@ const Dashboard = () => {
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[lime] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body flex flex-col gap-4">
@@ -61,7 +64,10 @@ const Dashboard = () => {
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[teal] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
@@ -74,7 +80,10 @@ const Dashboard = () => {
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[gray] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
@@ -87,7 +96,10 @@ const Dashboard = () => {
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[orange] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
@@ -100,7 +112,10 @@ const Dashboard = () => {
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[olive] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
@@ -113,7 +128,10 @@ const Dashboard = () => {
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[olive] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
@@ -126,7 +144,10 @@ const Dashboard = () => {
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[crimson] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
