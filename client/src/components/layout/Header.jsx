@@ -86,7 +86,7 @@ function Header() {
                     <div className="flex items-center gap-2 pe-4">
                         <button
                             onClick={openTaskModal}
-                            className="bg-[#635FC7] hover:bg-[#A8A4FF] text-white px-4 py-3 rounded-3xl transition-colors duration-400 cursor-pointer">
+                            className="bg-[#635FC7] hover:bg-[#A8A4FF] text-white px-4 py-3 rounded-3xl font-bold text-[15px] transition-colors duration-400 cursor-pointer">
                             <i className="bi bi-plus"></i> Add New Task
                         </button>
                         <div className="relative" ref={dropdownRef}>
