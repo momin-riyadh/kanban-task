@@ -75,7 +75,7 @@ function Header() {
             <div className="flex justify-between items-center">
                 <div className="w-72 pl-4">
                     <a href="" className="w-full">
-                        <img width={120} src={LOGO} alt="Logo" className="h-16"/>
+                        <img width={152} src={LOGO} alt="Logo" className="h-16"/>
                     </a>
                 </div>
                 <div
