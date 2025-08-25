@@ -192,8 +192,7 @@ function Header() {
                                 <select
                                     value={status}
                                     onChange={(e) => setStatus(e.target.value)}
-                                    className="w-full border border-[#E4EBFA] rounded-md px-3 py-2 outline-none focus:border-[#635FC7] bg-white"
-                                >
+                                    className="w-full border border-[#E4EBFA] rounded-md px-3 py-2 outline-none focus:border-[#635FC7] bg-white">
                                     <option value="Todo">Todo</option>
                                     <option value="Doing">Doing</option>
                                     <option value="Done">Done</option>
