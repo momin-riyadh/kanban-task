@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from "../Card.jsx";
 import PageLayout from "../layout/PageLayout.jsx";
 
 const Dashboard = () => {
+    // Modal state for "+ New Column"
+    const [isBoardModalOpen, setIsBoardModalOpen] = useState(false);
+    const [isBoardModalVisible, setIsBoardModalVisible] = useState(false);
+
+    // Form state (mocked for UI only)
+    const [boardName, setBoardName] = useState('Platform Launch');
+    const [columns, setColumns] = useState(['Todo', 'Doing', 'Done']);
+
+    const openBoardModal = () => {
+        setIsBoardModalOpen(true);
+        // next paint to allow transition
+        setTimeout(() => setIsBoardModalVisible(true), 0);
+    };
+
+    const closeBoardModal = () => {
+        setIsBoardModalVisible(false);
+        setTimeout(() => setIsBoardModalOpen(false), 300); // match transition
+    };
+
+    useEffect(() => {
+        if (!isBoardModalOpen) return;
+        const onKey = (e) => e.key === 'Escape' && closeBoardModal();
+        document.addEventListener('keydown', onKey);
+        return () => document.removeEventListener('keydown', onKey);
+    }, [isBoardModalOpen]);
+
+    const addColumn = () => setColumns((prev) => [...prev, '']);
+    const removeColumn = (idx) => setColumns((prev) => prev.filter((_, i) => i !== idx));
+    const updateColumn = (idx, val) =>
+        setColumns((prev) => prev.map((c, i) => (i === idx ? val : c)));
+
+    const saveChanges = (e) => {
+        e.preventDefault();
+        // TODO: Persist boardName and columns
+        closeBoardModal();
+    };
+
     return (
         <PageLayout>
             <div className="dashboard h-full p-4">
@@ -101,8 +138,13 @@ const Dashboard = () => {
                     </div>
 
                     {/*Make New Column*/}
-                    <div className="single-column make-new-column flex-shrink-0 w-2xs grid place-items-center min-h-[calc(100vh-160px)] bg-[#E9EFFA]">
-                            <h3 className="text-[24px] h-lh font-semibold text-[#635FC7]"> + New Column</h3>
+                    <div
+                        className="single-column make-new-column flex-shrink-0 w-2xs grid place-items-center min-h-[calc(100vh-160px)] bg-[#E9EFFA] cursor-pointer hover:opacity-90 transition"
+                        onClick={openBoardModal}
+                        aria-label="+ New Column"
+                        role="button"
+                    >
+                        <h3 className="text-[24px] h-lh font-bold text-[#635FC7]"> + New Column</h3>
                     </div>
                     {/*End Make New Column*/}
                 </div>
@@ -120,8 +162,85 @@ const Dashboard = () => {
                     </button>
                 </div>
                 {/*End State*/}
-
             </div>
+
+            {/* Edit Board Modal (triggered by + New Column) */}
+            {isBoardModalOpen && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center" role="dialog" aria-modal="true">
+                    <div
+                        className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${isBoardModalVisible ? 'opacity-100' : 'opacity-0'}`}
+                        onClick={closeBoardModal}
+                    />
+                    <div
+                        className={`relative w-full max-w-xl mx-4 bg-white rounded-lg shadow-xl p-6 transition-all duration-300
+                        ${isBoardModalVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}
+                    >
+                        <div className="flex items-start justify-between mb-4">
+                            <h3 className="text-lg font-semibold">Edit Board</h3>
+                            <button
+                                className="text-[#828FA3] hover:text-[#635FC7]"
+                                onClick={closeBoardModal}
+                                aria-label="Close"
+                            >
+                                <i className="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+
+                        <form onSubmit={saveChanges} className="space-y-4">
+                            <div>
+                                <label className="block text-sm text-[#828FA3] mb-2">Board Name</label>
+                                <input
+                                    type="text"
+                                    value={boardName}
+                                    onChange={(e) => setBoardName(e.target.value)}
+                                    className="w-full border border-[#E4EBFA] rounded-md px-3 py-2 outline-none focus:border-[#635FC7]"
+                                    placeholder="e.g. Platform Launch"
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm text-[#828FA3] mb-2">Board Columns</label>
+                                <div className="space-y-2">
+                                    {columns.map((c, idx) => (
+                                        <div key={idx} className="flex items-center gap-2">
+                                            <input
+                                                type="text"
+                                                value={c}
+                                                onChange={(e) => updateColumn(idx, e.target.value)}
+                                                className="flex-1 border border-[#E4EBFA] rounded-md px-3 py-2 outline-none focus:border-[#635FC7]"
+                                                placeholder={`Column ${idx + 1}`}
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => removeColumn(idx)}
+                                                className="px-3 py-2 rounded-md text-[#828FA3] hover:text-[#EA5555] hover:bg-gray-50"
+                                                aria-label="Remove column"
+                                            >
+                                                <i className="bi bi-x-lg"></i>
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={addColumn}
+                                    className="mt-3 w-full bg-[#635FC71A] text-[#635FC7] hover:bg-[#635FC733] px-3 py-2 rounded-3xl font-semibold"
+                                >
+                                    + Add New Column
+                                </button>
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="w-full bg-[#635FC7] hover:bg-[#A8A4FF] text-white px-4 py-3 rounded-3xl transition-colors duration-300 font-semibold"
+                            >
+                                Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            )}
         </PageLayout>
     );
 };
