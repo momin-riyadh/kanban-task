@@ -10,6 +10,8 @@ function Header() {
     const [taskDescription, setTaskDescription] = useState("");
     const [subtasks, setSubtasks] = useState(["", ""]);
     const [status, setStatus] = useState("Todo");
+    // Animated visibility for modal (keeps it mounted during exit animation)
+    const [isTaskModalVisible, setIsTaskModalVisible] = useState(false);
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -30,8 +32,16 @@ function Header() {
     };
 
     // Add: modal helpers
-    const openTaskModal = () => setIsTaskModalOpen(true);
-    const closeTaskModal = () => setIsTaskModalOpen(false);
+    const openTaskModal = () => {
+        setIsTaskModalOpen(true);
+        // allow next paint so transitions can start
+        setTimeout(() => setIsTaskModalVisible(true), 0);
+    };
+    const closeTaskModal = () => {
+        setIsTaskModalVisible(false);
+        // match the transition duration (300ms)
+        setTimeout(() => setIsTaskModalOpen(false), 300);
+    };
 
     useEffect(() => {
         if (!isTaskModalOpen) return;
@@ -110,10 +120,13 @@ function Header() {
                     role="dialog"
                 >
                     <div
-                        className="absolute inset-0 bg-black/50"
+                        className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${isTaskModalVisible ? 'opacity-100' : 'opacity-0'}`}
                         onClick={closeTaskModal}
                     />
-                    <div className="relative w-full max-w-lg mx-4 bg-white rounded-lg shadow-xl p-6">
+                    <div
+                        className={`relative w-full max-w-lg mx-4 bg-white rounded-lg shadow-xl p-6 transition-all duration-300
+                        ${isTaskModalVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}
+                    >
                         <div className="flex items-start justify-between mb-4">
                             <h3 className="text-lg font-semibold">Add New Task</h3>
                             <button

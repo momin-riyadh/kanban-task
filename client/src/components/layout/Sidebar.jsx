@@ -12,6 +12,8 @@ function Sidebar({ onSidebarToggle }) {
     const [showAddBoard, setShowAddBoard] = useState(false);
     const [boardName, setBoardName] = useState('');
     const [columns, setColumns] = useState([{ id: 1, name: 'Todo' }, { id: 2, name: 'Doing' }]);
+    // Animate: controls visible state while keeping the modal mounted for exit transition
+    const [isAddBoardVisible, setIsAddBoardVisible] = useState(false);
 
     const menuItems = [
         {name: 'Home', href: '#', isActive: true, icon: iconBoard},
@@ -33,6 +35,14 @@ function Sidebar({ onSidebarToggle }) {
     const handleCreateNewBoardClick = (e) => {
         e.preventDefault();
         setShowAddBoard(true);
+        // allow next paint so transition can run
+        setTimeout(() => setIsAddBoardVisible(true), 0);
+    };
+
+    const closeAddBoardModal = () => {
+        setIsAddBoardVisible(false);
+        // match transition duration (300ms)
+        setTimeout(() => setShowAddBoard(false), 300);
     };
 
     // Modal helpers
@@ -61,7 +71,7 @@ function Sidebar({ onSidebarToggle }) {
         }
         // TODO: Lift this data to parent/store as needed
         console.log('New Board:', { name: trimmedName, columns: trimmedCols });
-        setShowAddBoard(false);
+        closeAddBoardModal();
         setBoardName('');
         setColumns([{ id: 1, name: 'Todo' }, { id: 2, name: 'Doing' }]);
     };
@@ -135,13 +145,18 @@ function Sidebar({ onSidebarToggle }) {
 
             {/* Add New Board Modal */}
             {showAddBoard && (
-                <div className="fixed inset-0 z-[60]">
+                <div className="fixed inset-0 z-[60] flex items-center justify-center">
+                    {/* Backdrop with fade */}
                     <div
-                        className="absolute inset-0 bg-black/50"
-                        onClick={() => setShowAddBoard(false)}
+                        className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${isAddBoardVisible ? 'opacity-100' : 'opacity-0'}`}
+                        onClick={closeAddBoardModal}
                         aria-hidden="true"
                     />
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] max-w-[92vw] bg-white rounded-xl p-6 shadow-xl">
+                    {/* Panel with fade+scale+slide */}
+                    <div
+                        className={`relative w-[480px] max-w-[92vw] bg-white rounded-xl p-6 shadow-xl transition-all duration-300
+                            ${isAddBoardVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}
+                    >
                         <h3 className="text-lg font-bold text-gray-900">Add New Board</h3>
                         <form className="mt-6 space-y-4" onSubmit={handleSubmitBoard}>
                             <div>
