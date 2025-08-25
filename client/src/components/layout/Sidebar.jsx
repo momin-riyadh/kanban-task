@@ -8,6 +8,10 @@ import IconHide from '../../assets/images/icon-hide-sidebar.svg';
 function Sidebar({ onSidebarToggle }) {
     const [isDark, setIsDark] = useState(false);
     const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+    // --- Add New Board modal state ---
+    const [showAddBoard, setShowAddBoard] = useState(false);
+    const [boardName, setBoardName] = useState('');
+    const [columns, setColumns] = useState([{ id: 1, name: 'Todo' }, { id: 2, name: 'Doing' }]);
 
     const menuItems = [
         {name: 'Home', href: '#', isActive: true, icon: iconBoard},
@@ -23,6 +27,43 @@ function Sidebar({ onSidebarToggle }) {
         if (onSidebarToggle) {
             onSidebarToggle(newVisibility);
         }
+    };
+
+    // Open the Add New Board modal
+    const handleCreateNewBoardClick = (e) => {
+        e.preventDefault();
+        setShowAddBoard(true);
+    };
+
+    // Modal helpers
+    const handleAddColumn = () => {
+        const nextId = (columns[columns.length - 1]?.id || 0) + 1;
+        setColumns([...columns, { id: nextId, name: '' }]);
+    };
+
+    const handleRemoveColumn = (id) => {
+        setColumns(columns.filter(c => c.id !== id));
+    };
+
+    const handleChangeColumn = (id, value) => {
+        setColumns(columns.map(c => c.id === id ? { ...c, name: value } : c));
+    };
+
+    const handleSubmitBoard = (e) => {
+        e.preventDefault();
+        // Basic validation (can be enhanced/connected to app state later)
+        const trimmedName = boardName.trim();
+        const trimmedCols = columns.map(c => ({ ...c, name: c.name.trim() })).filter(c => c.name !== '');
+        if (!trimmedName || trimmedCols.length === 0) {
+            // Simple feedback for now
+            alert('Please provide a board name and at least one column.');
+            return;
+        }
+        // TODO: Lift this data to parent/store as needed
+        console.log('New Board:', { name: trimmedName, columns: trimmedCols });
+        setShowAddBoard(false);
+        setBoardName('');
+        setColumns([{ id: 1, name: 'Todo' }, { id: 2, name: 'Doing' }]);
     };
 
     return (
@@ -44,6 +85,8 @@ function Sidebar({ onSidebarToggle }) {
                                 className="hover:bg-[#635FC7] hover:text-white rounded-r-3xl -ml-4 pl-2">
                                 <a
                                     href={item.href}
+                                    // When clicking the Create New Board item, open modal instead of navigating
+                                    onClick={item.name === '+ Create New Board' ? handleCreateNewBoardClick : undefined}
                                     className={`flex items-center p-2 hover:text-white active:bg-[#635FC7] active:text-white ${
                                         item.isActive ? 'text-[#635FC7]' : 'text-gray-600'
                                     }`}
@@ -89,6 +132,70 @@ function Sidebar({ onSidebarToggle }) {
             >
                 <img src={IconShow} alt="" className="w-6 h-4"/>
             </button>
+
+            {/* Add New Board Modal */}
+            {showAddBoard && (
+                <div className="fixed inset-0 z-[60]">
+                    <div
+                        className="absolute inset-0 bg-black/50"
+                        onClick={() => setShowAddBoard(false)}
+                        aria-hidden="true"
+                    />
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] max-w-[92vw] bg-white rounded-xl p-6 shadow-xl">
+                        <h3 className="text-lg font-bold text-gray-900">Add New Board</h3>
+                        <form className="mt-6 space-y-4" onSubmit={handleSubmitBoard}>
+                            <div>
+                                <label className="block text-xs font-semibold text-[#828FA3] mb-2">Name</label>
+                                <input
+                                    type="text"
+                                    className="w-full border border-gray-200 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-[#635FC7]"
+                                    placeholder="e.g. Web Design"
+                                    value={boardName}
+                                    onChange={(e) => setBoardName(e.target.value)}
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-semibold text-[#828FA3] mb-2">Columns</label>
+                                <div className="space-y-2">
+                                    {columns.map(col => (
+                                        <div key={col.id} className="flex items-center gap-2">
+                                            <input
+                                                type="text"
+                                                className="flex-1 border border-gray-200 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-[#635FC7]"
+                                                value={col.name}
+                                                onChange={(e) => handleChangeColumn(col.id, e.target.value)}
+                                            />
+                                            <button
+                                                type="button"
+                                                className="text-[#828FA3] hover:text-red-500 px-2"
+                                                onClick={() => handleRemoveColumn(col.id)}
+                                                aria-label="Remove column"
+                                            >
+                                                ✕
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={handleAddColumn}
+                                    className="mt-3 w-full bg-[#F4F7FD] text-[#635FC7] font-semibold rounded-full py-2 hover:bg-[#EBEDFB] transition"
+                                >
+                                    + Add New Column
+                                </button>
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="w-full bg-[#635FC7] hover:bg-[#A8A4FF] text-white font-semibold rounded-full py-3 transition"
+                            >
+                                Create New Board
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
