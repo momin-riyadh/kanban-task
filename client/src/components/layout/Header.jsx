@@ -73,7 +73,7 @@ function Header() {
     return (
         <div className="h-20 bg-white fixed top-0 left-0 right-0 z-50">
             <div className="flex justify-between items-center">
-                <div className="w-72 pl-4">
+                <div className="w-[300px] pl-4">
                     <a href="" className="w-full">
                         <img width={152} src={LOGO} alt="Logo" className="h-16"/>
                     </a>

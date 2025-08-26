@@ -80,7 +80,7 @@ function Sidebar({ onSidebarToggle }) {
         <>
             {/* Main Sidebar */}
             <div
-                className={`fixed left-0 top-0 w-72 bg-white h-full border-r-1 border-[#E4EBFA] pt-20 flex flex-col justify-between transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-40 ${
+                className={`fixed left-0 top-0 w-[300px] bg-white h-full border-r-1 border-[#E4EBFA] pt-20 flex flex-col justify-between transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-40 ${
                     isSidebarVisible ? 'translate-x-0' : '-translate-x-full'
                 }`}
             >
