@@ -44,95 +44,120 @@ const Dashboard = () => {
         <PageLayout>
             <div className="dashboard h-full p-4">
                 {/*Board Columns*/}
-                <div className="flex flex-nowrap gap-4">
+                <div className="flex flex-nowrap gap-[24px]">
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[lime] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
-                        <div className="column-body flex flex-col gap-4">
+                        <div className="column-body flex flex-col gap-[24px]">
                             <Card className="max-w-md flex-shrink-0">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
-                                <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
+                            </Card>
+                            <Card className="max-w-md flex-shrink-0">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">Lorem ipsum dolor sit amet, consectetur radicalising.</h3>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
                             </Card>
                         </div>
                     </div>
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[teal] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
                             <Card className="max-w-md">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
-                                <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
                             </Card>
                         </div>
                     </div>
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[gray] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
                             <Card className="max-w-md">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
-                                <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
                             </Card>
                         </div>
                     </div>
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[orange] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
                             <Card className="max-w-md">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
-                                <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
                             </Card>
                         </div>
                     </div>
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[olive] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
                             <Card className="max-w-md">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
-                                <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
                             </Card>
                         </div>
                     </div>
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[olive] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
                             <Card className="max-w-md">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
-                                <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
                             </Card>
                         </div>
                     </div>
                     <div className="single-column flex-shrink-0 w-2xs">
                         <div className="column-header text-center">
                             <h2 className="text-[16px] font-semibold mb-4 text-[#828FA3] uppercase">
-                                To Do (1)
+                                <div className="flex gap-2.5 justify-start items-center">
+                                    <span className="w-4 h-4 rounded-full bg-[crimson] inline-block"></span> <span className="h-lh">To
+                                    Do </span> (1)
+                                </div>
                             </h2>
                         </div>
                         <div className="column-body">
                             <Card className="max-w-md">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
-                                <p className="text-gray-600">This is the content of the card. You can put any content here.</p>
+                                <p className="text-[#828FA3] text-[12px] font-bold">1 of 3 subtasks.</p>
                             </Card>
                         </div>
                     </div>
