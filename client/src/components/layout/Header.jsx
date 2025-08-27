@@ -78,14 +78,14 @@ function Header() {
                     <a href="" className="w-full">
                         <picture>
                             <source width={152} media="(min-width:768px)" srcSet={LOGO}/>
-                            <img src={LOGO_MARK} alt="Logo" />
+                            <img src={LOGO_MARK} alt="Logo"/>
                         </picture>
                     </a>
                 </div>
                 <div
                     className="flex justify-between flex-1 items-center gap-2 border-b-0 md:border-b-1 border-l-0 md:border-l-1  border-[#E4EBFA] h-20">
                     <div className="pl-5.5">
-                    <h4 className="font-semibold text-xl md:text-2xl">Platform Launch</h4>
+                        <h4 className="font-bold text-lg md:text-2xl">Platform Launch</h4>
                     </div>
                     <div className="flex items-center gap-2 pe-4">
                         <button
