@@ -1,4 +1,5 @@
 import LOGO from '../../assets/images/logo.svg';
+import LOGO_MARK from '../../assets/images/logo-mark.svg';
 import React, {useState, useRef, useEffect} from "react";
 
 function Header() {
@@ -73,21 +74,24 @@ function Header() {
     return (
         <div className="h-20 bg-white fixed top-0 left-0 right-0 z-50">
             <div className="flex justify-between items-center">
-                <div className="w-[300px] pl-4">
+                <div className="w-auto md:w-[300px] pl-4">
                     <a href="" className="w-full">
-                        <img width={152} src={LOGO} alt="Logo" className="h-16"/>
+                        <picture>
+                            <source width={152} media="(min-width:768px)" srcSet={LOGO}/>
+                            <img src={LOGO_MARK} alt="Logo" />
+                        </picture>
                     </a>
                 </div>
                 <div
-                    className="flex justify-between flex-1 items-center gap-2 border-b-1 border-l-1 border-[#E4EBFA] h-20">
+                    className="flex justify-between flex-1 items-center gap-2 border-b-0 md:border-b-1 border-l-0 md:border-l-1  border-[#E4EBFA] h-20">
                     <div className="pl-5.5">
-                        <h4 className="font-semibold text-2xl">Platform Launch</h4>
+                    <h4 className="font-semibold text-xl md:text-2xl">Platform Launch</h4>
                     </div>
                     <div className="flex items-center gap-2 pe-4">
                         <button
                             onClick={openTaskModal}
                             className="bg-[#635FC7] hover:bg-[#A8A4FF] text-white px-4 py-3 rounded-3xl font-bold text-[15px] transition-colors duration-400 cursor-pointer">
-                            <i className="bi bi-plus"></i> Add New Task
+                            <i className="bi bi-plus"></i> <span className="hidden md:inline">Add New Task</span>
                         </button>
                         <div className="relative" ref={dropdownRef}>
                             <i
